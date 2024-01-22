@@ -312,13 +312,15 @@ footer {
 .paper-title{
   Font-size: 15px;
   font-weight: 500;
-color: #242933
+color: #242933;
 }
 
-.paper-authors{
+.paper-authors {
   color:#595959;
 }
-.published-at{
+
+.published-at {
   color:#595959;
 font-style: italic
+
 }
