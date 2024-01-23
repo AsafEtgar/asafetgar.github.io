@@ -111,12 +111,17 @@ th {
 img {
   max-width:100%;
 }
+/* img.brightness {*/
+
+/* }*/
+
 
 header {
   width:240px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
+/*  padding-right: 100px;*/
 }
 
 header ul {
@@ -179,9 +184,10 @@ header ul a strong {
 }
 
 section {
-  width:620px;
+  width:570px;
   float:right;
   padding-bottom:50px;
+  margin-left: 50px;
 }
 
 small {
