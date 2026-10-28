@@ -1,0 +1,226 @@
+/* Okabe Academic — tokens applied to the orderedlist layout.
+   Colors are the light-theme tokens from tokens.json; nothing else. */
+
+:root {
+  --bg: #ffffff;   /* kept from the original theme, by request; tokens.json says #fefefd */
+  --surface: #f3f3f1;
+  --hairline: #e3e3df;
+  --ink: #1d1d1b;
+  --body: #5a5a57;
+  --pagenum: #6e6e6a;
+  --edge: #adada9;
+  --blue: #0072b2;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --space-xs: 12px;
+  --space-s: 24px;
+  --space-m: 40px;
+  --space-l: 56px;
+  --space-xl: 64px;
+
+  --radius-box: 8px;
+  --rule-w: 120px;
+  --rule-h: 3px;   /* rule-theorem thickness; the 6px rule-title is for slides */
+}
+
+body {
+  background-color: var(--bg);
+  padding: 50px;
+  font: 14px/1.5 var(--sans);
+  color: var(--body);   /* running text in body grey, as the original theme had it (#595959 there) */
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink);
+  line-height: 1.1;
+  font-weight: 700;
+}
+h1, h2, h4, h5, h6 { margin: 0 0 20px; }
+h3 { margin: 0 0 5px; }
+
+h1 { font-size: 28px; letter-spacing: -0.5px; }
+h2 { font-size: 24px; }
+h3 { font-size: 17px; }
+
+/* The short blue rule under each section title. */
+h2::after {
+  content: "";
+  display: block;
+  width: var(--rule-w);
+  height: var(--rule-h);
+  background: var(--blue);
+  margin-top: var(--space-xs);
+}
+
+/* Sections are separated by space, not lines. */
+section h2 { margin-top: var(--space-l); }
+section h2:first-child { margin-top: 0; }
+
+p, ol, table, pre, dl { margin: 0 0 10px; }
+ul { margin-left: 20px; padding-left: 0; list-style: square; }
+li { margin-bottom: 6px; }
+li::marker { color: var(--edge); }   /* light bullets; edge is a graphics-only token */
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+a small { font-size: 11px; color: var(--body); margin-top: -0.3em; display: block; }
+a:hover small { color: var(--body); }
+
+.wrapper { width: 860px; margin: 0 auto; }
+
+blockquote {
+  border-left: 1px solid var(--hairline);
+  margin: 0;
+  padding: 0 0 0 20px;
+  font-style: italic;
+}
+
+code, pre {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+  color: var(--ink);
+}
+pre {
+  padding: 8px 15px;
+  background: var(--surface);
+  border-radius: var(--radius-box);
+  border: 1px solid var(--hairline);
+  overflow-x: auto;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--hairline); }
+th { color: var(--ink); border-bottom-color: var(--ink); }
+dt { color: var(--ink); font-weight: 700; }
+
+img { max-width: 100%; }
+
+header {
+  width: 240px;
+  float: left;
+  position: fixed;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+header p { color: var(--body); }
+
+/* Section links in the fixed left column. */
+header nav.sections {
+  margin-top: var(--space-s);
+  text-align: center;
+}
+header nav.sections a {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.9;
+}
+header nav.sections a:hover { color: var(--blue); text-decoration: none; }
+
+/* Photo grid on other.html: thumbnails that open the full-size file. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  margin: var(--space-xs) 0 var(--space-s);
+}
+.gallery a { display: block; line-height: 0; }
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-box);
+  background: var(--surface);
+}
+.gallery a:hover img { outline: 2px solid var(--blue); outline-offset: -2px; }
+
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; }
+
+section {
+  width: 570px;
+  float: right;
+  padding-bottom: 50px;
+  margin-left: 50px;
+}
+
+small { font-size: 11px; }
+
+hr {
+  border: 0;
+  background: var(--hairline);
+  height: 1px;
+  margin: 0 0 20px;
+}
+
+footer {
+  width: 240px;
+  float: left;
+  position: fixed;
+  bottom: 50px;
+  color: var(--pagenum);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Optional in-page nav (currently commented out in index.html). */
+.nav {
+  width: 620px;
+  background-color: var(--surface);
+  color: var(--ink);
+  float: right;
+  margin-top: -13px;
+  margin-left: -8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 90%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+  border-radius: var(--radius-box);
+}
+.nav div { padding: 0 5px; }
+.nav a { color: var(--ink); }
+.nav a:hover { color: var(--blue); }
+
+/* Publication entries: bold linked title, venue in parentheses, then a
+   sub-bullet with the authors (owner bold) and the links. */
+ul.papers > li { margin-bottom: var(--space-xs); }
+ul.papers ul { margin: 2px 0 0 18px; }
+ul.papers ul li { margin-bottom: 0; color: var(--body); }
+ul.papers ul li strong { color: var(--ink); }
+a.paper-title { font-weight: 600; color: var(--ink); }
+a.paper-title:hover { color: var(--blue); text-decoration: none; }
+.venue { color: var(--body); font-style: italic; }
+.links a + a { margin-left: 8px; }
+
+@media print, screen and (max-width: 960px) {
+  div.wrapper { width: auto; margin: 0; }
+  header, section, footer { float: none; position: static; width: auto; }
+  header { padding-right: 320px; }
+  section {
+    border: 1px solid var(--hairline);
+    border-width: 1px 0;
+    padding: 20px 0;
+    margin: 0 0 20px;
+  }
+  header a small { display: inline; }
+}
+
+@media print, screen and (max-width: 720px) {
+  body { word-wrap: break-word; }
+  header { padding: 0; }
+  pre, code { word-wrap: normal; }
+}
+
+@media print, screen and (max-width: 480px) {
+  body { padding: 15px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media print {
+  body { padding: 0.4in; font-size: 12pt; color: var(--ink); }
+}
